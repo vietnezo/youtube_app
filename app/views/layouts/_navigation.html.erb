@@ -1,0 +1,53 @@
+<header>
+  <nav class="navbar navbar-expand-md navbar-light fixed-top bg-light">
+    <div class="container">
+      <a class="navbar-brand" href="#">
+        <%= link_to root_path do %>
+          <h2>Funny Movies</h2>
+        <% end %>
+      </a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse"
+        aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarCollapse">
+        <ul class="navbar-nav mr-auto">
+          <% if user_signed_in? %>
+            <li class="nav-item">
+              <%= link_to "会員情報変更", edit_user_registration_path, class: "nav-link" %>
+            </li>
+          <% end %>
+          <% if current_user %>
+            <% if current_user.is_admin? %>
+              <li class="nav-item">
+                <%= link_to t("user.users"), admin_users_path, class: "nav-link" %>
+              </li>
+              <li class="nav-item">
+                <%= link_to t("group.groups"), admin_groups_path, "data-turbolinks": false, class: "nav-link" %>
+              </li>
+            <% else %>
+              <% user_groups = current_user.user_groups %>
+              <% if is_organizer?(user_groups) %>
+                <li class="nav-item">
+                  <%= link_to t("user.users"), organizer_users_path, class: "nav-link" %>
+                </li>
+              <% end %>
+              <% if is_organizer?(user_groups) %>
+                <li class="nav-item">
+                  <%= link_to t("group.groups"), organizer_groups_path, class: "nav-link" %>
+                </li>
+              <% end %>
+            <% end %>
+          <% end %>
+        </ul>
+        <% if user_signed_in? %>
+          <%= link_to t("devise.sessions.destroy"), destroy_user_session_path, method: :delete,
+            class: "form-inline mt-2 mt-md-0" %>
+        <% else %>
+          <%= link_to t("devise.shared.links.sign_up"), "/users/sign_up", class: "form-inline mt-2 mt-md-0 mr-3" %>
+          <%= link_to t("devise.shared.links.sign_in"), new_user_session_path, class: "form-inline mt-2 mt-md-0" %>
+        <% end %>
+      </div>
+    </div>
+  </nav>
+</header>
