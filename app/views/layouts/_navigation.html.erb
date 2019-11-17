@@ -12,7 +12,9 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarCollapse">
         <% if user_signed_in? %>
-          <div class="navbar-nav mr-auto">
+          <div class="navbar-nav ml-auto">
+            <span class="mt-2 mr-4">Welcome, <%= current_user.email %></span>
+            <%= link_to "Share a movie", share_path, class: "form-inline btn btn-light mr-5" %>
           </div>
           <%= link_to "Logout", destroy_user_session_path, method: :delete, class: "form-inline mt-2 mt-md-0" %>
         <% else %>

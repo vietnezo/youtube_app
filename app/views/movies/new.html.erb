@@ -1,0 +1,26 @@
+<div class="card mx-auto col-lg-6 p-5 mt-5">
+  <%= form_with(model: @movie, local: true) do |form| %>
+    <% if @movie.errors.any? %>
+      <div id="error_explanation">
+        <h6><%= pluralize(@movie.errors.count, "error") %> prohibited this movie from being saved:</h6>
+        <ul>
+        <% @movie.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+    <div class="form-group">
+      <div class="row">
+        <%= form.label "Youtube URL: ", class: "col-lg-3 mt-2" %>
+        <%= form.text_field :url, class: "form-control col-lg-9" %>
+      </div>
+    </div>
+    <div class="actions">
+      <div class="row">
+        <div class="col-lg-3"></div>
+        <%= form.submit "Share", class: "btn btn-primary col-lg-9" %>
+      </div>
+    </div>
+  <% end %>
+</div>
