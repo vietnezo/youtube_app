@@ -12,7 +12,7 @@
 
 ActiveRecord::Schema.define(version: 2019_11_17_024645) do
 
-  create_table "movies", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "movies", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
     t.string "title"
     t.string "url"
     t.text "description"
@@ -24,7 +24,7 @@ ActiveRecord::Schema.define(version: 2019_11_17_024645) do
     t.index ["user_id"], name: "index_movies_on_user_id"
   end
 
-  create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"

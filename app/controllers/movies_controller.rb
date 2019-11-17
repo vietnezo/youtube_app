@@ -13,7 +13,7 @@ class MoviesController < ApplicationController
         movie_info = VideoInfo.new(movie_params[:url])
         @movie.update_attributes(title: movie_info&.title, description: movie_info&.description)
 
-        format.html { redirect_to root_path, notice: "Share move successfully!" }
+        format.html { redirect_to root_path, notice: "Share movie successfully!" }
         format.json { render :edit, status: :created, location: @movie }
       else
         format.html { render :new }
