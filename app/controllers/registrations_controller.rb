@@ -2,7 +2,7 @@ class RegistrationsController < Devise::RegistrationsController
   prepend_before_action :allow_params_authentication!, only: :create
 
   def auth_options
-    { scope: resource_name, recall: "#{controller_path}#new" }
+    { scope: resource_name, recall: "Home#index" }
   end
 
   def create
