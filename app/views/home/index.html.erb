@@ -1,18 +1,19 @@
-<div class="tournament-vertical-list" id="tournaments">
+<div class="movies-list">
   <div class="row">
-    <div class="col-md-9">
+    <div class="col-md-12">
       <% @movies.each do |movie| %>
         <div class="row mb-4">
-          <div class="col-md-3"></div>
-          <div class="col-md-5">
+          <div class="col-md-2"></div>
+          <div class="col-md-4">
             <%== movie_info(movie.url).embed_code %>
           </div>
           <div class="col-md-4">
-            <div class="font-weight-bold mb-2"><%= movie.title %></div>
-            <div class="">Shared by: <%= movie.user.email %></div>
-            <div class="desc mb-2">Description:</div>
+            <div class="font-weight-bold text-danger mb-2"><%= movie.title %></div>
+            <div><b>Shared by:</b> <i><%= movie.user.email %></i></div>
+            <div class="font-weight-bold mb-2">Description:</div>
             <div class="desc"><%= movie.description %></div>
           </div>
+          <div class="col-md-2"></div>
         </div>
       <% end %>
       <div class="row mb-4">

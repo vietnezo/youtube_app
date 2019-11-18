@@ -5,7 +5,7 @@
         <h6><%= pluralize(@movie.errors.count, "error") %> prohibited this movie from being saved:</h6>
         <ul>
         <% @movie.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
+          <li class="text-danger"><%= message %></li>
         <% end %>
         </ul>
       </div>
