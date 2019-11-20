@@ -10,3 +10,35 @@ form.new_user {
 .navbar-expand-md {
   border-bottom: solid 1px #ccc;
 }
+
+/* Pagination */
+.pagination {
+  > a, .current, .previous_page, .next_page, span.gap {
+    position: relative;
+    display: block;
+    padding: 0.5rem 0.75rem;
+    margin-left: -1px;
+    line-height: 1.25;
+    color: #007bff;
+    background-color: #fff;
+    border: 1px solid #dee2e6;
+    text-decoration: none;
+  }
+  > a:hover, .current {
+    text-decoration: none;
+    z-index: 2;
+    color: #0056b3;
+    background-color: #e9ecef;
+    border-color: #dee2e6;
+  }
+
+  > .previous_page {
+    border-top-left-radius: 0.25rem;
+    border-bottom-left-radius: 0.25rem;
+  }
+
+  > .next_page {
+    border-top-right-radius: 0.25rem;
+    border-bottom-right-radius: 0.25rem;
+  }
+}
