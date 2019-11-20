@@ -13,7 +13,18 @@ if User.find_by(email: "funnymovie@gmail.com").nil?
     "https://www.youtube.com/watch?v=exEduZlJS7Q&list=PLDmvslp_VR0xlwr5lAx2PDsZLu7oIOhpX",
     "https://www.youtube.com/watch?v=UT4W6jAyO_o&list=PLDmvslp_VR0xlwr5lAx2PDsZLu7oIOhpX&index=2",
     "https://www.youtube.com/watch?v=i8sxeP03B5s&list=PLDmvslp_VR0xlwr5lAx2PDsZLu7oIOhpX&index=3",
-    "https://www.youtube.com/watch?v=1d6rnWRb_7k&list=PLDmvslp_VR0xlwr5lAx2PDsZLu7oIOhpX&index=4"
+    "https://www.youtube.com/watch?v=1d6rnWRb_7k&list=PLDmvslp_VR0xlwr5lAx2PDsZLu7oIOhpX&index=4",
+    "https://www.youtube.com/watch?v=_Xh7H_fAn2c&list=PLDmvslp_VR0xlwr5lAx2PDsZLu7oIOhpX&index=5",
+    "https://www.youtube.com/watch?v=0xPatpCk_1E&list=PLDmvslp_VR0xlwr5lAx2PDsZLu7oIOhpX&index=6",
+    "https://www.youtube.com/watch?v=mE7S8OmH_60&list=PLDmvslp_VR0xlwr5lAx2PDsZLu7oIOhpX&index=7",
+    "https://www.youtube.com/watch?v=mE7S8OmH_60&list=PLDmvslp_VR0xlwr5lAx2PDsZLu7oIOhpX&index=8",
+    "https://www.youtube.com/watch?v=mE7S8OmH_60&list=PLDmvslp_VR0xlwr5lAx2PDsZLu7oIOhpX&index=9",
+    "https://www.youtube.com/watch?v=mE7S8OmH_60&list=PLDmvslp_VR0xlwr5lAx2PDsZLu7oIOhpX&index=10",
+    "https://www.youtube.com/watch?v=mE7S8OmH_60&list=PLDmvslp_VR0xlwr5lAx2PDsZLu7oIOhpX&index=11",
+    "https://www.youtube.com/watch?v=mE7S8OmH_60&list=PLDmvslp_VR0xlwr5lAx2PDsZLu7oIOhpX&index=12",
+    "https://www.youtube.com/watch?v=mE7S8OmH_60&list=PLDmvslp_VR0xlwr5lAx2PDsZLu7oIOhpX&index=13",
+    "https://www.youtube.com/watch?v=mE7S8OmH_60&list=PLDmvslp_VR0xlwr5lAx2PDsZLu7oIOhpX&index=14",
+    "https://www.youtube.com/watch?v=mE7S8OmH_60&list=PLDmvslp_VR0xlwr5lAx2PDsZLu7oIOhpX&index=15",
   ].each do |url|
     movie_info = VideoInfo.new(url)
     user.movies.create(
