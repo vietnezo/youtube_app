@@ -6,4 +6,5 @@ Rails.application.routes.draw do
   get '/share' => 'movies#new'
 
   root to: "home#index"
+  mount ActionCable.server => '/cable'
 end

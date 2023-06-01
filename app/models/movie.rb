@@ -3,4 +3,14 @@ class Movie < ApplicationRecord
 
   validates :url, presence: true, format: /\A.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=)([^#\&\?]*).*/i
   validates :user_id,  presence: true
+
+  after_create :notify_to_all_users
+
+  private
+
+  def notify_to_all_users
+    ActionCable.server.broadcast('notifications_channel', {
+      message: "#{user.email} shared a new video: #{title}"  
+    })
+  end
 end

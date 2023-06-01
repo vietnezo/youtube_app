@@ -2,7 +2,6 @@
 <html>
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <%#= favicon_link_tag('icon/favicon.ico') %>
     <title>Funny Movies</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -33,5 +32,32 @@
       <% end %>
       <%= yield %>
     </div>
+
+    <%= action_cable_meta_tag %>
+    <link href="https://cdn.jsdelivr.net/npm/@sweetalert2/theme-dark@4/dark.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.js"></script>
+    <script>
+      // Create a consumer to connect to the notifications channel
+      const consumer = ActionCable.createConsumer();
+      // Subscribe to the notifications channel
+      consumer.subscriptions.create('NotificationChannel', {
+        received(data) {
+          // Handle the received notification data
+          console.log('New notification:', data);
+          const Toast = Swal.mixin({
+            toast: true,
+            position: 'top-end',
+            showConfirmButton: false,
+            timer: 5000,
+            timerProgressBar: true,
+          })
+
+          Toast.fire({
+            icon: 'success',
+            title: data["message"] || "",
+          })
+        }
+      });
+    </script>
   </body>
 </html>

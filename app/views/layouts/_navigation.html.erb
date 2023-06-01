@@ -21,10 +21,10 @@
           <%= link_to "Logout", destroy_user_session_path, method: :delete, class: "btn btn-outline-dark" %>
         <% else %>
           <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-            <div class="navbar-nav ml-auto">
+            <div class="navbar-nav ml-auto" style="display: flex">
               <div class="row">
-                <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "email", class: "form-control col-lg-6 mr-2" %>
-                <%= f.password_field :password, autocomplete: "current-password", placeholder: "password", validate: true, class: "form-control col-lg-5" %>
+                <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "email", class: "form-control mr-2" %>
+                <%= f.password_field :password, autocomplete: "current-password", placeholder: "password", validate: true, class: "form-control" %>
               </div>
             </div>
             <%= f.submit "Login / Register", class: "btn btn-outline-primary" %>
@@ -34,3 +34,10 @@
     </div>
   </nav>
 </header>
+
+<style>
+  #user_email, #user_password {
+    width: 220px;
+    margin-right: 10px;
+  }
+</style>

@@ -6,13 +6,11 @@ class MoviesController < ApplicationController
   end
 
   def create
-    @movie = current_user.movies.new(movie_params)
+    movie_info = VideoInfo.new(movie_params[:url])
+    @movie = current_user.movies.new(movie_params.merge(title: movie_info&.title, description: movie_info&.description))
 
     respond_to do |format|
       if @movie.save
-        movie_info = VideoInfo.new(movie_params[:url])
-        @movie.update_attributes(title: movie_info&.title, description: movie_info&.description)
-
         format.html { redirect_to root_path, notice: "Share movie successfully." }
         format.json { render :edit, status: :created, location: @movie }
       else
