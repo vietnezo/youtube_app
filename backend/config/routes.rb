@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   get 'home/index'
 
-  devise_for :users, controllers: { registrations: 'registrations' }
+  devise_for :users, controllers: { sessions: 'sessions', registrations: 'registrations' }
   scope :auth do
     get "is_signed_in", to: "auth#is_signed_in?"
   end

@@ -286,4 +286,7 @@ Devise.setup do |config|
   # ActiveSupport.on_load(:devise_failure_app) do
   #   include Turbolinks::Controller
   # end
+  config.jwt do |jwt|
+    jwt.secret = "7bfef339c8099a5981689f7ea8e69164faa294edb3552c6da7a79b7697eae505f3f1d819c1431decf7de57c852957d1ec2f6274d7815422939a5b785dea071f4"
+  end
 end
