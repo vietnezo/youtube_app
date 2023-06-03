@@ -14,5 +14,9 @@ module FunnyMovie
     config.action_view.field_error_proc = Proc.new do |html_tag, instance|
       %Q(#{html_tag}).html_safe
     end
+
+    config.to_prepare do
+      DeviseController.respond_to :html, :json
+    end
   end
 end
