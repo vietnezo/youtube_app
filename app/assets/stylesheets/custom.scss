@@ -42,3 +42,10 @@ form.new_user {
     border-bottom-right-radius: 0.25rem;
   }
 }
+
+.close {
+  box-shadow: none;
+  border: solid 1px #ccc;
+  background: #fff;
+  border-radius: 4px;
+}
