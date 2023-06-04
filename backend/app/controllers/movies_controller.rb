@@ -1,5 +1,12 @@
 class MoviesController < ApplicationController
-  before_action :authenticate_user!
+  before_action :authenticate_user!, only: [:new, :create]
+
+  def index
+    @movies = Movie.includes(:user).all.order(created_at: :desc).paginate(page: params[:page], per_page: 10)
+    respond_to do |format|
+      format.json
+    end
+  end
 
   def new
     @movie = current_user.movies.new

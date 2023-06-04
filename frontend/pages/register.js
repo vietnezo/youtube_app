@@ -2,8 +2,9 @@ import React from 'react'
 import { Button, Form, Input } from 'antd'
 import { post } from '@/utils/baseRequest'
 
-export default function Login() {
+export default function Register() {
   const onFinish = async (values) => {
+    console.log('Success:', values);
     try {
       await post('http://localhost:3000/users/sign_in', {
         user: {
@@ -13,7 +14,6 @@ export default function Login() {
       })
       location.href = '/'
     } catch (error) {
-      
     }
   };
   
