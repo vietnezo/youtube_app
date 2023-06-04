@@ -10,6 +10,7 @@ class Movie < ApplicationRecord
 
   def notify_to_all_users
     ActionCable.server.broadcast('notifications_channel', {
+      user_id: user.id,
       message: "#{user.email} shared a new video: #{title}"  
     })
   end
